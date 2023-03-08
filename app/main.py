@@ -42,7 +42,7 @@ def upload():
             successful_upload = True
 
     return render_template('upload_photo.html', 
-                           successful_upload=successful_upload,imgnombre="selfiesInapropiados.jpeg")
+                           successful_upload=successful_upload,imgnombre=uploaded_file.filename[0].name)
 
 
 @app.route('/search')

@@ -35,6 +35,7 @@ def upload():
             )
 
             logging.info(blob.public_url)
+            logging.warning(blob)
             print("blob",blob)
             print("blob.public_url",blob.public_url )
 

@@ -37,14 +37,14 @@ def upload():
             )
 
             logging.info(blob.public_url)
-            logging.warning(blob)
+            
             print("blob",blob)
             print("blob.public_url",blob.public_url )
 
             successful_upload = True
 
     return render_template('upload_photo.html', 
-                           successful_upload=successful_upload, imgfile="hijodroga.jpeg")
+                           successful_upload=successful_upload)
 
 
 @app.route('/search')

@@ -1,7 +1,7 @@
 import logging
 import os
 
-from flask import Flask, render_template, request, secure_filename
+from flask import Flask, render_template, request
 import google.cloud.logging
 from google.cloud import firestore
 from google.cloud import storage

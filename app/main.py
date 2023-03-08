@@ -37,7 +37,7 @@ def upload():
             )
 
             logging.info(blob.public_url)
-            
+          
             print("blob",blob)
             print("blob.public_url",blob.public_url )
 

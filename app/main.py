@@ -27,7 +27,7 @@ def upload():
         if uploaded_file:
             gcs = storage.Client()
             bucket = gcs.get_bucket(os.environ.get('BUCKET', 'my-bmd-bucket'))
-            blob = bucket.blob(uploaded_file.filename)
+            blob = bucket.blob(uploaded_file.filename[0])
 
             blob.upload_from_string(
                 uploaded_file.read(),

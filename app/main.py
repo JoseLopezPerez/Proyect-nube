@@ -44,7 +44,7 @@ def upload():
             successful_upload = True
 
     return render_template('upload_photo.html', 
-                           successful_upload=successful_upload,filename="hijodroga.jpeg")
+                           successful_upload=successful_upload, imgfile="hijodroga.jpeg")
 
 
 @app.route('/search')

@@ -29,7 +29,7 @@ def upload():
             bucket = gcs.get_bucket(os.environ.get('BUCKET', 'my-bmd-bucket'))
             blob = bucket.blob(uploaded_file.filename)
 
-            filename = secure_filename(uploaded_file.filename)
+            
 
             blob.upload_from_string(
                 uploaded_file.read(),
@@ -44,7 +44,7 @@ def upload():
             successful_upload = True
 
     return render_template('upload_photo.html', 
-                           successful_upload=successful_upload,filename=filename)
+                           successful_upload=successful_upload,filename="hijodroga.jpeg")
 
 
 @app.route('/search')

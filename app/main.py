@@ -1,7 +1,7 @@
 import logging
 import os
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, secure_filename
 import google.cloud.logging
 from google.cloud import firestore
 from google.cloud import storage
@@ -27,7 +27,9 @@ def upload():
         if uploaded_file:
             gcs = storage.Client()
             bucket = gcs.get_bucket(os.environ.get('BUCKET', 'my-bmd-bucket'))
-            blob = bucket.blob(uploaded_file.filename[0])
+            blob = bucket.blob(uploaded_file.filename)
+
+            filename = secure_filename(uploaded_file.filename)
 
             blob.upload_from_string(
                 uploaded_file.read(),
@@ -42,7 +44,7 @@ def upload():
             successful_upload = True
 
     return render_template('upload_photo.html', 
-                           successful_upload=successful_upload,imgnombre=uploaded_file.filename[0].name)
+                           successful_upload=successful_upload,filename=filename)
 
 
 @app.route('/search')

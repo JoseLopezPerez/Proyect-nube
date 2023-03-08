@@ -39,7 +39,7 @@ def upload():
             successful_upload = True
 
     return render_template('upload_photo.html', 
-                           successful_upload=successful_upload, url=blob.public_url)
+                           successful_upload=successful_upload)
 
 
 @app.route('/search')
